@@ -16,7 +16,7 @@ espera = WebDriverWait(browser,15)
 #insere das no forme pa login e preciona o botão de login
 browser.find_element(By.XPATH,"//input[@type='email']").send_keys("gabrielgb.user@gmail.com")
 espera.until(EC.element_to_be_selected)
-email = browser.find_element(By.XPATH,"//button[@data-test='email-form-button']")
+email = browser.find_element(By.XPATH,"//button[@data-test='continue-with-email-inline']")
 email.click()
 sleep(15)
 
@@ -42,7 +42,7 @@ while True:
         #Gera a lista com as informações
         for cargo, depoi in zip(cargo, depoi):
             with open('relatos.csv','a',encoding='utf-8') as arquivo:
-                arquivo.write(f'{cargo.text};{depoi.text}{os.linesep}')
+                arquivo.write(f'{cargo.text}#{depoi.text}{os.linesep}')
      
     except:
         #Muda dinamicamnete as paginas
